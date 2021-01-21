@@ -123,5 +123,6 @@ Before pushing, it is important to first fetch and then potentially rebase on to
 ```git
 git push -f
 ```
-### Merge Requests
+### Merge/Pull Request
+The final stage in the Team's workflow is to make a pu
 ## Tutorial
