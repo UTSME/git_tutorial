@@ -21,6 +21,7 @@ HTTP
 git clone https://github.com/<GITHUB_USER>/<REPOSITORY_NAME>
 ```
 THis will create a new directory in your current working directory containing the main/master branch of the upstream repository. change into the repository directory to begin usign git properly.
+
 ### Branches
 All work is done on branches. By default, you will have a main or master branch depending on when the repository was created (main is now default since 2020). Work should never be done on your master/main because that is where all finished code will end up and ideally this branch will be not be writeable when you try to push code to upstream.
 
@@ -47,7 +48,6 @@ After a Branch has been deleted locally it can be deleted upstream as well from 
 git push origin :<NAME_OF_BRANCH>
 ```
 the upstream version of a branch can also be deleted on Github or Gitlab after merging
-
 
 ### Making Commits
 After completing work you need to make a commit as a form of formal save point in your development cycle. It is important to commit often so that is easy to revert back to earlier states without losing huge amounts of work. making a commit is done in two stages; the first is to stage the appropriate files and the second is to actually make a commit and leave a brief message describing your changes.
@@ -80,16 +80,40 @@ Finally, once all the appropriate files have been staged, a commit can be made. 
 git commit -m "commit message"
 ```
 the -m tag is shown here for ease and is not required but the terminal will open a nano or vim text editor instance for specifying a commit message which is not an intuitive interface for beginners.
-### Pushing
-- pushing
-- ensure there is no conflicts else the push will be rejected
-- force pushing
+
+### Fetching and Pulling
+After an initial clone has been created the way to get additional new changes is with either the fetch command or the pull command. the difference between the two is that pulling will automatically grab and then merge any changes obtained from upstream into your local branch if it is possible. these commands are shown below
+```git
+git fetch
+git pull
+```
+this version of the command will fetch or pull all upstream branches. You can optionally add arguements to get a specific branch from a specific remote. Again, most of the time in the UTS Motorsports workflow you should be working with the origin remote. syntax for this alternate version of the commands is shown below
+```
+git fetch <REMOTE_NAME> <BRANCH_NAME>
+git pull <REMOTE_NAME> <BRANCH_NAME>
+```
+fetching will download changes and place them in a remote local branch. before working with fetched code it is important to checkout a new branch and make the branch point to this code to avoid entering a detached head state.
+
+In both situations it is important to be aware of potential merge conflicts. These can occaionally occur when multiple people work on same files and use the same lines in a file for their implementation. git will recognise this state for you and alert you when you try to pull or when you attempt to merge/rebase after fetching. If this happens then in each of the conflicting files there will be lines flagged with the conflicting code and you will have the option to manually select which changes you want to keep. It is possible to keep current changes, incoming changes or a combination of both depending on the situation. Be sure to ask other team members if you arent sure because you dont want to accidentally delete someone else's code.
+
 ### Rebasing
 - rebase
 - interactive rebase
-### Fetching and Pulling
-- fetching
-- pulling
-- beware merge conflicts
+
+### Pushing
+Pushing it required to get all your changes onto an upstream branch. It will not work unless changes have been commited before attempting to push or no changes will be registered as existing. It can be done simply with the following command.
+```git
+git push
+```
+This will push to the upstream version of a branch automatically unless it does not yet exist. In this case the following version of the command is required.
+```
+git push --set-upstream <REMOTE_NAME> <BRANCH_NAME>
+```
+in most situations if you are following the teams workflow then your <REMOTE_NAME> will be origin. This will change when trying to push to other forks but that will not be covered in this workflow.
+
+Before pushing, it is important to first fetch and then potentially rebase on top of changes. Without first fetching and then rebasing off potential upstream changes, you run the risk of allowing history to diverge and as a consequence. This will cause you problems either immediately as your attempt to push is rejected due to diverging history or when you attempt to make a merge request and you find the same issue. It is possible to force push and override changes anyway but this should only be used if you have already rebased and the reason for failure is the addition of additional commits that were not there before. The consequence of a bad force push can be loss of work. the force push command is outlined below
+```git
+git push -f
+```
 ### Merge Requests
 ## Tutorial
