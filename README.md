@@ -97,8 +97,16 @@ fetching will download changes and place them in a remote local branch. before w
 In both situations it is important to be aware of potential merge conflicts. These can occaionally occur when multiple people work on same files and use the same lines in a file for their implementation. git will recognise this state for you and alert you when you try to pull or when you attempt to merge/rebase after fetching. If this happens then in each of the conflicting files there will be lines flagged with the conflicting code and you will have the option to manually select which changes you want to keep. It is possible to keep current changes, incoming changes or a combination of both depending on the situation. Be sure to ask other team members if you arent sure because you dont want to accidentally delete someone else's code.
 
 ### Rebasing
-- rebase
-- interactive rebase
+the core purpose of rebasing is to change your commit history to suit your purposes. Some of the reasons for rebasing are as follows:
+- Someone has merged in code to master while you were developing your own code and now the upstream master has divereged from your local master. Rebasing will play all of the changes you have made on top of the upstream changes assuming there are no merge conflicts so that you can create a merge request without issue.
+- Squashing commits so that they are more representative of atomic functional changes instead of having lots of random formatting or bug fixing commits.
+- changing multiple commit messages at once so that they do a better job outlining the changes you have made and for what reason.
+
+The simplest form of rebasing can be triggered with the following command. This will cover the first usecase where your changes will be played back on top of a diverged master so that meging is possible.
+```git
+git rebase <BRANCH_NAME>
+```
+A more complex version of rebasing called an interactive rebase exists as well for all the other potential use cases of this functionality. This requires some reading and a good tutorial to explain how to use this functionality can be found here https://thoughtbot.com/blog/git-interactive-rebase-squash-amend-rewriting-history
 
 ### Pushing
 Pushing it required to get all your changes onto an upstream branch. It will not work unless changes have been commited before attempting to push or no changes will be registered as existing. It can be done simply with the following command.
