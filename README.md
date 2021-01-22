@@ -146,3 +146,12 @@ When viewing your repository on Gitlab, first selct the merge requests tab circl
 Once the appropriate target and source branch have been selected then you can hit the create pull request button and fillin the appropriate details on the next page.
 
 ## Tutorial
+Now to put all the above into practice. By the end of this section you will have gone through the entire UTS Motorsports workflow. There are no solutions provided but if you are stuck first re read the above sections before asking for help.
+
+1. Clone this repo
+2. Create a new branch name with the following naming convention feature/<YOUR_NAME>
+3. Create a directory with your name and then create a file inside it
+4. Stage the changes you have made
+5. Commit the changes you have made with a descriptive commit message
+6. Push up your changes
+7. Make a merge request for review
