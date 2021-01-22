@@ -123,5 +123,26 @@ Before pushing, it is important to first fetch and then potentially rebase on to
 ```git
 git push -f
 ```
-### Merge Requests
+### Merge/Pull Request
+The final stage in the Team's workflow is to make a pull request. At this stage your completed code should exist on an upstream branch ready to be merged into master, ie matching history up until now and merge conflict free. A merge request is made from either Github or Gitlab depending one which one is currently in use.
+
+There are 2 different ways to easily create a pull request when using Gitlab or Github. The shared method between the two is to use the automatically generated link when pushing to an upstream branch. The second way is to go to the website and to select the merge/pull requests tab and manually select the source and base branches for merging. Pictures have been attached to indicate how a pull request can be created.
+
+#### Terminal Method
+The automatically generated link is highlighted in in a box. Copying this link and pasting it into a browser window will automatically lead you to a pull request merging the current working branch into master.
+
+![terminal_pull_request](tutorial_pictures/terminal_pull_request.png)
+
+#### Github Method
+When viewing your repository on Github, first select the pull requests tab circled in red. This will bring you to the comparing changes page shown in the photo where you will get the opportunity to select a base and source branch for merge. the base branch is shown in blue and it is the one receiving changes. the source branch is highlighted in green and will be supplying the changes.
+
+![github_pull_request](tutorial_pictures/github_pull_request.png)
+
+#### Gitlab Method
+When viewing your repository on Gitlab, first selct the merge requests tab circled in red. This will bring you to the new merge request page shown in the picture attached. At this point you can select a source branch to provide and a target branch to receive commits. Once again, The Base branch is circled in blue and the source branch is circled in green.
+
+![gitlab_pull_request](tutorial_pictures/gitlab_pull_request.png)
+
+Once the appropriate target and source branch have been selected then you can hit the create pull request button and fillin the appropriate details on the next page.
+
 ## Tutorial
