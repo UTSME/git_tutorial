@@ -1,11 +1,22 @@
 # git_tutorial
-tutorial on how to conform to the UTS Motorsports git workflow
+tutorial on how to conform to the UTS Motorsports git workflow. 
 
 ## Notes
-* ssh vs http
-* gitk for visual tool
-* this tutorial will teach usage around the git bash api, you will be expected to follow and meet rules if you select to use another method of controlling git.
-* On windows you will be required to install git bash seperately but on macos and linux you can check the installation of git through command git -h and you should see the help page for using git. if it does not appear then you can install git with a sudo apt install git
+### Git Bash
+It is important to note that this tutorial is designed to teach you how to use the git bash interface instead of any other tools. Other tools do exist and you may have been exposed to them in your studies. Feel free to use other tools if you are comfortable but make sure to follow the core workflow guidelines.
+
+### Installation
+On windows you will be required to go and download git bash for isntallation. make sure you install git bash specifically because the git for windows gui tool is quite limiting. If you are a linux or mac user, git is generally installed by default and can be used from the terminal straight away. If this is not the case then it can be installed with your standard package manager like apt.
+
+### SSH vs HTTPS
+There are two potential setups when trying to push to github or gitlab, the first being ssh and the second being https. Using an ssh key will provide your device with a key so you do not need to login whenever trying to push code. A tutorial for creating an sshkey can be found [here](https://www.atlassian.com/git/tutorials/git-ssh). After creating the ssh key, it is easiest to copy it and add it to github/gitlab instead of setting up an ssh agent like it suggests. the key can be copied with the following command assuming ti is in the default save location.
+```bash
+cat ~/.ssh/<NAME_OF_KEY>.pub
+```
+It can then be added to github/gitlab by going to your user settings and selecting the ssh/gpg keys tab. Ensure you copy and paste the entire result from the cat command for this to work.
+
+### Visual history viewer
+You my find it easier to view your git history with a visual tool like gitk instead of using git log. gitk is shipped with most installations of git but otherwise is trivial to install. Once again, there are other tools that fulfil this niche and can be used to make commits and push directly like git kracken.
 
 ## Usage
 ### Cloning
