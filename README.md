@@ -52,7 +52,7 @@ git checkout <NAME_OF_BRANCH>
 ```
 To delete a branch locally after it has been merged into master sucessfully use the following command:
 ```git
-git checkout -D <NAME_OF_BRANCH>
+git branch -D <NAME_OF_BRANCH>
 ```
 After a Branch has been deleted locally it can be deleted upstream as well from the terminal with
 ```git
@@ -63,7 +63,11 @@ the upstream version of a branch can also be deleted on Github or Gitlab after m
 ### Making Commits
 After completing work you need to make a commit as a form of formal save point in your development cycle. It is important to commit often so that is easy to revert back to earlier states without losing huge amounts of work. making a commit is done in two stages; the first is to stage the appropriate files and the second is to actually make a commit and leave a brief message describing your changes.
 
-The first step in making a commit is to stage files. staging is done with the git add command and follows standardised file slection protocal, ie using the * character to indicate all files that follow a naming pattern. some examples are shown below.
+The first step in making a commit is to stage files. It may be helpful for you to view which files have registered changes in case you have forgotten all the files you have worked on or need to double check what has been staged so far. It can be done with the status command as shown below
+```git
+git status
+```
+staging is done with the git add command and follows standardised file slection protocal, ie using the * character to indicate all files that follow a naming pattern. some examples are shown below.
 
 Adding a single file.
 ```git
@@ -166,3 +170,5 @@ Now to put all the above into practice. By the end of this section you will have
 5. Commit the changes you have made with a descriptive commit message
 6. Push up your changes
 7. Make a merge request for review
+8. Assign someone to review your code. (In this situation it can be any member of the team that has completed the tutorial but in future you should try to make sure your reviewer understands what you are trying to do)
+9. Delete your branch both locally and upstream after it has sucessfully been merged. (assuming auto-delete isnt enabled)
